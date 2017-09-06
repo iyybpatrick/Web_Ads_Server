@@ -11,10 +11,14 @@ This is a Ads Server Which displays real Amazon product on the web page.
 
 # Implementation Steps
 
-1) The first step is to use crawler to crawl real product information from Amazon website, and then general raw 
+1) The first step is to use crawler to crawl real product information from Amazon website, and then generate raw 
    ads data file for next steps. Product information includes : raw query, ads title(defined as ads keywords in this project),
    ads category, ads price, ads thumbnails, ads price, bid price, ad id(generated continuously)
    
    
    
-2) The second step is to 
+2) The second step is to put all ads data into MYSQL database, and generate inverted index, forward index for each token word.
+
+3) Select cleaned words from query and title, using spark library to generate word2vec model. And then use offline training to generate synonmys for each token word, and store synonmys file on disk.
+
+4) Select pClick feature from search log and use offline training to generate pClick model. When online, extract feature from query and predict  pClick rate with with trained model.
