@@ -21,4 +21,4 @@ This is a Ads Server Which displays real Amazon product on the web page.
 
 3) Select cleaned words from query and title, using spark library to generate word2vec model. And then use offline training to generate synonmys for each token word, and store synonmys file on disk.
 
-4) Select pClick feature from search log and use offline training to generate pClick model. When online, extract feature from query and predict  pClick rate with with trained model.
+4) Select and generate pClick feature from search log and use Gradient Boosting Decision Tree to train pClick model offline. When online, extract feature from query and use trained model to predict pClick rate.
