@@ -27,4 +27,4 @@ This is a Ads Server Which displays real Amazon product on the web page.
 
 6) After generating pClick rate, rank ads according to its relevant score and bid price.
 
-7) According to ads' rank score, place ads in front of users.
+7) Rank ads and display top K ads to users.
