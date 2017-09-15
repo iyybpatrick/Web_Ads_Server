@@ -13,7 +13,7 @@ This is a Ads Server Which displays real Amazon product on the web page.
 
 1) The first step is to write crawler(Java code) to crawl real product information from Amazon website, and then saved raw 
    ads data on disk. Product information includes : raw query, ads title(defined as ads keywords in this project),
-   ads category, ads price, ads thumbnails, ads price, bid price, ad id(generated continuously)
+   ads category, ads price, ads thumbnails, ad id(generated continuously).
    
    
    
