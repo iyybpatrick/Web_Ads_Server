@@ -19,7 +19,12 @@ This is a Ads Server Which displays real Amazon product on the web page.
    
 2) The second step is to read data information line by line, and generate inverted index with memcached. The purpose of inverted index is to find relevant time in shortest time. Key is cleaned query token(clean query with lucene library first), value is Ads list. 
 
+3) Then generate forward index to relate every ad with it's detailed information(title, url, price etc). At the same time, I save information on disk (MySQL database).
 
-3) Select cleaned words from query and title, using spark library to generate word2vec model. And then use offline training to generate synonmys for each token word, and store synonmys file on disk.
+4) Query understanding : Select cleaned words from query and title, used sparkMLlib(word2vec algorithm) to train a classifier. Which helped find synonyms for each token word. Then save the synonyms list on disk. While input with online query, use N-gram algorithm to generate sub queries for this certain query, and find out all the relevant ads.
 
-4) Select and generate pClick feature from search log and use Gradient Boosting Decision Tree to train pClick model offline. When online, extract feature from query and use trained model to predict pClick rate.
+5) Select and generate 8 features from search log and use (Gradient Boosting Decision Tree & Logistic regression) to train pClick model offline. When online, extract feature from input query and use trained model to predict pClick rate.
+
+6) After generating pClick rate, rank ads according to its relevant score and bid price.
+
+7) According to ads' rank score, place ads in front of users.
